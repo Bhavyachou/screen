@@ -1,9 +1,22 @@
 tr:hover {
-    background-color:#E4EBED   ;
+    background-color:#F4F5F5    ;
   }
 
   .sidecol {
     position: absolute;
     left: 12px;
     top:15px;
+  }
+  .button {
+  border:none ;
+    background-color: white;
+    display: inline-block;
+    padding:5px 10px 5px 10px;
+  }
+ button:active,
+  button:focus
+ {
+    outline:none;
+    border-bottom:0.25em solid #072C67  ; 
+     
   }
