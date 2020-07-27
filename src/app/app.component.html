@@ -1,0 +1,89 @@
+<div class="row" style=" background-color: #F3EEF0; height:80px; font-size: 12px; border-bottom: 1px solid #dddddd;" >
+  <div style="margin-left: 40px; margin-top: 20px;">
+    <button mat-button style="padding:5px; background-color:#0B1541  ; width:150px; color:white;" >
+      <mat-icon>list</mat-icon>
+      SAVED LIST</button>
+    <button mat-button style="padding:5px; width:150px; color:#424444  ;">
+      <mat-icon class="outlined">filter_alt_outline</mat-icon>
+      SAVED FILTERS</button>
+    <button mat-button style="padding:5px; width:150px; color:#424444   "  >
+      <mat-icon>history</mat-icon>
+      SEARCH HISTORY</button>
+  </div>
+
+<div class="search-hero" style="padding:10px;  margin-top: 20px;  position: absolute;right: 12px; width:310px;">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search ">
+</div>
+</div>
+<mat-grid-list cols="4" style="height:100%; background-color: white; font-size: 12px; font-family: Helvetica; "  >
+  <mat-grid-tile colspan="3" style="height:100%; overflow-y: scroll; ">
+<table mat-table datatable [dtOptions]="dtOptions" style="position: absolute; top:10px;"  >
+
+  <ng-container style="font-weight: bold; font-size: 25px;" >
+    <th mat-header-cell style="color:#C6C0C2 ; height:30px; padding-left: 30px; border-bottom: 1px solid #dddddd;"> Date </th>
+  </ng-container>
+  <ng-container >
+    <th mat-header-cell style="color:#C6C0C2 ; height:30px; border-bottom: 1px solid #dddddd; width:400px;"> Name </th>
+    </ng-container>
+ <ng-container >
+    <th mat-header-cell style="color:#C6C0C2 ; height:30px; border-bottom: 1px solid #dddddd; text-align: right; padding-right: 25px;">No. Of Entities </th>
+  </ng-container>
+  <ng-container >
+    <th mat-header-cell style="color:#C6C0C2 ; height:30px; border-bottom: 1px solid #dddddd;"> Actions </th>
+  </ng-container>
+  <ng-container >
+    <th mat-header-cell style="border-bottom: 1px solid #dddddd;" >  </th>
+  </ng-container>
+
+  
+  
+ 
+<ng-container>
+    <tr *ngFor="let group of data | filter:searchText" style="height:50px; padding:12px; ">
+      <td style="padding-left: 30px; border-bottom: 1px solid #dddddd;">{{group.date}}</td>
+      <td style="border-bottom: 1px solid #dddddd; font-weight: bold;">{{group.name}}</td>
+      <td style="border-bottom: 1px solid #dddddd; text-align: right; padding-right: 25px;">{{group.entities}}</td>
+      <td style="color:#C6C0C2 ; border-bottom: 1px solid #dddddd; ">
+         <mat-icon style="font-size: 17px; color:#AEB0B0  ;">mail_outline</mat-icon>
+         <mat-icon style="font-size: 17px; color:#AEB0B0     ;">share_outline</mat-icon>
+         <mat-icon style="font-size: 17px;color:#AEB0B0  ;">create_outline</mat-icon>
+         <mat-icon style="font-size: 17px; color:#AEB0B0    ;">delete_outline</mat-icon>
+      </td>
+      <td style="border-bottom: 1px solid #dddddd;">
+       <button  mat-flat-button   (click)="ShowHideButton(); "  style="color:darkblue; background-color: white;" >
+         Details
+       </button>
+      </td>
+  </tr>
+  </ng-container>
+  </table>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1" style="height:100%;  ">
+    <div class="sidecol" >
+      <div style="background-color: #F3EEF0; padding-top:15px; padding-left: 15px; padding-bottom: 15px; padding-right: 25px; "> 
+        No description yet
+        <span style="color:darkblue; font-weight: bold;">Add description </span>
+  
+      </div>
+     <div *ngIf="!showMainContent" style="margin-top:10px; margin-left: 5px;">
+       
+        <dl style="color:#6C86F8;" >
+          <dt>Swiggy</dt>
+          <dt >Infosys</dt>
+          <dt >Delhivery</dt>
+          <dt>Swiggy</dt>
+          <dt >Infosys</dt>
+          <dt >Delhivery</dt>
+          <dt>Swiggy</dt>
+          <dt >Infosys</dt>
+          <dt >Delhivery</dt>
+          <dt>Swiggy</dt>
+          <dt >Infosys</dt>
+          <dt >Delhivery</dt>
+        </dl>
+      </div>
+      </div>
+    
+  </mat-grid-tile>
+</mat-grid-list>
